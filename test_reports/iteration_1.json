@@ -1,0 +1,25 @@
+{
+  "summary": "Frontend-only smoke test of MARAN Atelier SPA. All 12 primary user flows passed, 0 console errors. Desktop (1365x768) and mobile (390x844) both rendered correctly.",
+  "tested_scope": ["frontend", "integration"],
+  "passed": [
+    "Page loads at REACT_APP_BACKEND_URL with 0 JS console errors and full SPA renders (Header/Hero/Services/Portfolio/Stats/About/Contact/Footer)",
+    "Sticky header becomes glassmorphic on scroll (class changes after ~200px scroll)",
+    "Header 'Book Consultation' CTA scrolls to #contact section (contact top ~28px from viewport)",
+    "Hero indicators 0/1/2 clickable and switch slides",
+    "Services renovation & landscape cards render with data-testids",
+    "Portfolio filters (all/renovation/landscape) clickable and functional",
+    "Before/After slider responds to keyboard ArrowRight",
+    "Stats counter (stat-villas) shows animated value '500+ Villas Transformed'",
+    "Contact form validation: empty submit shows name/email/message inline errors",
+    "Contact form success: valid submission clears the form (simulated success)",
+    "Contact info links present: tel:, wa.me, and mailto: hrefs all exist",
+    "Floating consultation CTA appears after scroll >640px, links to https://wa.me/971505550198",
+    "Mobile viewport 390x844: hamburger toggle opens mobile-menu drawer with all nav links and CTA"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "N/A (frontend-only per request)", "frontend": "100% (13/13 checks)"},
+  "retest_needed": false,
+  "full_testing_deferred": true,
+  "notes": "Contact form submission is MOCKED (simulated setTimeout success, no network call) as per requirements. No backend endpoints tested per request."
+}
