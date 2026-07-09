@@ -50,10 +50,12 @@ export default function Header() {
                         src="https://customer-assets.emergentagent.com/job_desert-gold-design/artifacts/qj4647hy_Untitled%20design%20%287%29.png"
                         alt="UPSCAPE logo"
                         className={`w-auto transition-all duration-500 ${
-                            scrolled ? "h-9 sm:h-10" : "h-10 sm:h-12"
+                            scrolled ? "h-14 sm:h-16" : "h-16 sm:h-20"
                         }`}
                         style={{
-                            filter: scrolled ? "none" : "drop-shadow(0 4px 12px rgba(0,0,0,0.35))",
+                            filter: scrolled
+                                ? "drop-shadow(0 1px 2px rgba(0,0,0,0.08))"
+                                : "drop-shadow(0 6px 18px rgba(0,0,0,0.45))",
                         }}
                     />
                 </a>
@@ -79,8 +81,9 @@ export default function Header() {
                 {/* CTA */}
                 <div className="hidden lg:block">
                     <a
-                        href="#contact"
-                        onClick={handleNav("#contact")}
+                        href="https://wa.me/971566095076"
+                        target="_blank"
+                        rel="noreferrer"
                         data-testid="header-book-cta"
                         className="btn-pill"
                     >
@@ -135,8 +138,10 @@ export default function Header() {
                             ))}
                         </ul>
                         <a
-                            href="#contact"
-                            onClick={handleNav("#contact")}
+                            href="https://wa.me/971566095076"
+                            target="_blank"
+                            rel="noreferrer"
+                            onClick={() => setOpen(false)}
                             data-testid="mobile-book-cta"
                             className="btn-pill mt-6 w-full justify-center"
                         >

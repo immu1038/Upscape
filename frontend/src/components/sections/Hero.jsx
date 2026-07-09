@@ -128,8 +128,9 @@ export default function Hero() {
                                 />
                             </a>
                             <a
-                                href="#contact"
-                                onClick={scrollTo("#contact")}
+                                href="https://wa.me/971566095076"
+                                target="_blank"
+                                rel="noreferrer"
                                 data-testid="hero-consult-cta"
                                 className="text-white/90 nav-link"
                                 style={{ color: "#fff" }}
