@@ -1,0 +1,121 @@
+{
+  "theme": "light",
+  "brand": {
+    "name": "MARÁN Atelier",
+    "tone": "Luxury, sophisticated, precise, and modern",
+    "location": "Dubai (Downtown/Marina)",
+    "description": "High-end renovation and bespoke landscape design for Dubai's affluent market."
+  },
+  "colors": {
+    "primary": "#C5A880",
+    "background_dark": "#1A1A1A",
+    "background_light": "#F9F9F9",
+    "surface": "#FFFFFF",
+    "text_primary": "#1A1A1A",
+    "text_secondary": "#4A4A4A",
+    "text_inverse": "#FFFFFF",
+    "accent_subtle": "#E5D8C5"
+  },
+  "typography": {
+    "google_fonts": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap",
+    "fonts": {
+      "heading": "Cormorant Garamond, serif",
+      "body": "Montserrat, sans-serif"
+    },
+    "hierarchy": {
+      "h1": "text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight text-background_dark",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-background_dark",
+      "h3": "text-2xl sm:text-3xl font-light text-background_dark",
+      "body": "text-base lg:text-lg font-light leading-relaxed text-text_secondary",
+      "button": "text-sm uppercase tracking-[0.2em] font-medium"
+    }
+  },
+  "layouts": {
+    "global": "Generous spacing scale (e.g. py-24 or py-32 for sections). Mobile-first responsive grids.",
+    "hero": "Full-screen (min-h-screen). Absolute positioning for video/image background with black/30 overlay. Split bold typography layout. Floating glassmorphic header at top.",
+    "services": "Bento-grid approach. Use CSS Grid: grid-cols-1 md:grid-cols-2. Large gaps (gap-8 or gap-12). Generous internal padding.",
+    "portfolio": "Filterable grid: grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6. Integrate a distinct Before/After slider component prominently.",
+    "contact": "Two-column bento style on desktop: Left column for form, right column for a stylized dark-mode map and Dubai contact details. gap-12."
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-xl bg-white/70 (or bg-background_dark/70 for dark panels). 1px border of white/20 or black/5.",
+    "shadows": "Soft, diffused drop shadows for hovering: shadow-[0_20px_40px_rgb(0,0,0,0.08)]",
+    "borders": "Minimal, 1px solid #E5D8C5 or transparent.",
+    "3d_hover": "On services cards, apply transform perspective (`perspective: 1000px`) and calculate rotateX/rotateY based on mouse move event. Smooth transition on mouse leave."
+  },
+  "components": [
+    {
+      "name": "StickyHeader",
+      "instructions": "Sticky at top with z-50. Glassmorphic styling (never fully transparent if scrolling). Minimalist MARÁN logo left, smooth-scroll anchor links center, Floating 'Book Consultation' CTA right. Fluid hamburger menu for mobile."
+    },
+    {
+      "name": "HeroSection",
+      "instructions": "Full viewport height. Background slider using AnimatePresence. Split typography: 'Redefining' / 'Dubai's Luxury Living spaces'."
+    },
+    {
+      "name": "ServicesCards",
+      "instructions": "3D-Hover functionality on 'Premium House Renovation' and 'Bespoke Landscape Design' cards. Use framer-motion for interactive tilt."
+    },
+    {
+      "name": "PortfolioGallery",
+      "instructions": "State for active filter (All, Renovation, Landscape). Grid layout. Incorporate a Before/After image slider component (can use a range input overlay to adjust a clip-path for revealing the after image)."
+    },
+    {
+      "name": "StatsSection",
+      "instructions": "Framer Motion `useInView` to trigger animated counting up for: '500+ Villas Transformed', '100% Premium Quality', 'Based in Dubai'."
+    },
+    {
+      "name": "ContactSection",
+      "instructions": "Left: Form with floating labels and simulated validation/success state. Right: Dark-mode stylized map and address details."
+    }
+  ],
+  "motion": {
+    "libraries": ["framer-motion", "lucide-react"],
+    "patterns": {
+      "entrance": "Staggered fade in and slide up from 20px on scroll using Framer Motion.",
+      "hover_button": "Scale up slightly (1.02), background color shift, text color contrast.",
+      "slider": "Smooth crossfade for Hero background images (opacity 0 to 1, transition 1s)."
+    }
+  },
+  "accessibility": {
+    "contrast": "Ensure text over images has sufficient contrast. Use overlays or text-shadows if needed.",
+    "aria": "Use aria-labels for buttons without text, such as hamburger menus or slider controls.",
+    "motion": "Respect `prefers-reduced-motion` for heavy animations.",
+    "testing": "All interactive elements MUST include `data-testid` (e.g., `data-testid=\"contact-submit-button\"`)."
+  },
+  "media": {
+    "image_urls": {
+      "hero_slider": [
+        "https://images.pexels.com/photos/16573669/pexels-photo-16573669.jpeg",
+        "https://images.unsplash.com/photo-1778500124626-65e43ea24c1f"
+      ],
+      "services": {
+        "house_renovation": "https://images.pexels.com/photos/20418771/pexels-photo-20418771.jpeg",
+        "landscape_design": "https://images.unsplash.com/photo-1661333587575-25c87c14f398"
+      },
+      "portfolio": [
+        "https://images.pexels.com/photos/8082243/pexels-photo-8082243.jpeg",
+        "https://images.unsplash.com/photo-1705326701287-346fc37a2c86",
+        "https://images.unsplash.com/photo-1609444074316-85c2478a6346",
+        "https://images.unsplash.com/photo-1729719022570-031be5c8605a"
+      ],
+      "before_after": {
+        "before": "https://images.unsplash.com/photo-1707725669525-d925dc9e9010",
+        "after": "https://images.unsplash.com/photo-1705326701287-346fc37a2c86"
+      }
+    }
+  },
+  "universal_guidelines_for_main_agent": [
+    "You have .js files not .tsx file, so write components in JavaScript (.js or .jsx).",
+    "Do NOT apply universal transition (e.g. `transition: all`). Add transitions for specific properties.",
+    "Do NOT center align the app container in CSS (no text-align: center on body/root).",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur) for sticky/floating containers.",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style.",
+    "All interactive elements MUST include a `data-testid` attribute.",
+    "Ensure the sticky header is never fully transparent if content scrolls under it.",
+    "Use 2-3x more spacing than feels comfortable (e.g., p-8 to p-16) for a premium, uncrowded feel.",
+    "Use Framer Motion for scroll entrance animations (e.g., whileInView) and 3D hover effects.",
+    "Implement Floating labels for the contact form using CSS transform and position relative/absolute logic."
+  ]
+}
