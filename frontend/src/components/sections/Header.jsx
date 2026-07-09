@@ -44,21 +44,18 @@ export default function Header() {
                     onClick={handleNav("#home")}
                     data-testid="brand-logo"
                     className="flex items-center gap-3 group"
-                    aria-label="MARÁN Atelier — home"
+                    aria-label="UPSCAPE — Renovations & Fit-out"
                 >
-                    <span
-                        className="inline-block w-8 h-8 rounded-full border border-[color:var(--maran-charcoal)] relative"
-                        aria-hidden="true"
-                    >
-                        <span className="absolute inset-1 rounded-full bg-[color:var(--maran-gold)]" />
-                    </span>
-                    <span className="font-serif-display text-xl sm:text-2xl leading-none tracking-tight">
-                        MARÁN
-                        <span className="text-[color:var(--maran-gold)]">
-                            {" "}
-                            Atelier
-                        </span>
-                    </span>
+                    <img
+                        src="https://customer-assets.emergentagent.com/job_desert-gold-design/artifacts/qj4647hy_Untitled%20design%20%287%29.png"
+                        alt="UPSCAPE logo"
+                        className={`w-auto transition-all duration-500 ${
+                            scrolled ? "h-9 sm:h-10" : "h-10 sm:h-12"
+                        }`}
+                        style={{
+                            filter: scrolled ? "none" : "drop-shadow(0 4px 12px rgba(0,0,0,0.35))",
+                        }}
+                    />
                 </a>
 
                 {/* Desktop nav */}

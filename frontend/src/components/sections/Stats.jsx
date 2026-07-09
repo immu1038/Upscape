@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 
 const STATS = [
     { value: 500, suffix: "+", label: "Villas Transformed", testid: "stat-villas" },
-    { value: 14, suffix: " yrs", label: "Of Atelier Practice", testid: "stat-years" },
+    { value: 240, suffix: "+", label: "Fit-out Projects Delivered", testid: "stat-years" },
     { value: 100, suffix: "%", label: "Premium Craftsmanship", testid: "stat-quality" },
     { value: 42, suffix: "", label: "Master Artisans", testid: "stat-artisans" },
 ];
@@ -53,9 +53,9 @@ export default function Stats() {
                 >
                     <p className="text-eyebrow mb-4">Trust — 04</p>
                     <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl leading-tight max-w-2xl text-[color:var(--maran-charcoal)]">
-                        Fourteen years of{" "}
-                        <span className="italic">quiet obsession</span> with
-                        detail.
+                        A relentless{" "}
+                        <span className="italic">obsession</span> with the
+                        smallest detail.
                     </h2>
                 </motion.div>
 

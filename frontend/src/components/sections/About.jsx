@@ -25,12 +25,12 @@ export default function About() {
                     </div>
                     <div className="absolute -bottom-6 -right-6 hidden sm:block bg-[color:var(--maran-gold)] text-[color:var(--maran-charcoal)] p-5 max-w-[220px]">
                         <p className="font-serif-display text-3xl leading-none">
-                            Est.
+                            Deira
                             <br />
-                            2011
+                            Dubai
                         </p>
                         <p className="text-[10px] tracking-[0.3em] uppercase mt-2">
-                            Dubai · UAE
+                            Port Saeed · UAE
                         </p>
                     </div>
                 </motion.div>
@@ -51,11 +51,11 @@ export default function About() {
                         few.
                     </h2>
                     <p className="mt-8 text-white/70 text-base sm:text-lg leading-relaxed max-w-2xl">
-                        MARÁN Atelier is a Dubai-born practice of architects,
-                        interior designers and landscape artisans. We accept a
-                        limited number of private commissions each year — always
-                        end-to-end, always with the same team from first sketch
-                        to final styling.
+                        UPSCAPE is a Dubai practice of architects, interior
+                        designers and landscape artisans. We accept a limited
+                        number of private commissions each year — always
+                        end-to-end, always with the same team from first
+                        sketch to final styling.
                     </p>
 
                     <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-8">

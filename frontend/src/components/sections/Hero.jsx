@@ -76,7 +76,7 @@ export default function Hero() {
                             data-testid="hero-eyebrow"
                             className="text-eyebrow text-[color:var(--maran-gold-soft)] mb-6"
                         >
-                            Dubai · Est. 2011 · Villa Ateliers
+                            Dubai · Renovations · Fit-out
                         </p>
                         <h1
                             data-testid="hero-title"
@@ -104,10 +104,10 @@ export default function Hero() {
                         className="col-span-12 lg:col-span-4 lg:pl-8"
                     >
                         <p className="text-white/80 text-base sm:text-lg font-light leading-relaxed max-w-md">
-                            An atelier of architects, interior specialists and
-                            landscape artisans crafting private residences
-                            across Downtown, Palm Jumeirah, Emirates Hills &
-                            Marina.
+                            A Dubai studio of architects, interior specialists
+                            and landscape artisans delivering full-turnkey
+                            renovations & fit-out across Downtown, Palm
+                            Jumeirah, Emirates Hills & Marina.
                         </p>
                         <div className="mt-8 flex flex-wrap items-center gap-4">
                             <a

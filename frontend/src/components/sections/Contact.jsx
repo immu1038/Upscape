@@ -214,8 +214,8 @@ export default function Contact() {
                             data-testid="contact-map"
                         >
                             <iframe
-                                title="Dubai studio location"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.207207!2d55.2735!3d25.1972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sDowntown%20Dubai!5e0!3m2!1sen!2sae!4v1700000000000"
+                                title="UPSCAPE studio location · Port Saeed, Deira, Dubai"
+                                src="https://www.google.com/maps?q=Sheikh+Suhail+Maktoum+Juma+Building+Port+Saeed+Deira+Dubai&output=embed"
                                 width="100%"
                                 height="100%"
                                 style={{
@@ -236,7 +236,7 @@ export default function Contact() {
                                 }}
                             />
                             <span className="absolute top-4 left-4 text-[10px] tracking-[0.28em] uppercase text-white/90 glass-dark px-3 py-1.5 rounded-full">
-                                Studio · Downtown Dubai
+                                Studio · Port Saeed, Deira
                             </span>
                         </div>
 
@@ -244,28 +244,28 @@ export default function Contact() {
                             <ContactRow
                                 icon={<MapPin className="w-4 h-4" />}
                                 label="Studio"
-                                value="Boulevard Plaza, Tower 1 · Downtown Dubai, UAE"
+                                value="402-05 Sheikh Suhail Maktoum Juma Bldg · Port Saeed, Deira, Dubai · UAE"
                                 testid="contact-address"
                             />
                             <ContactRow
                                 icon={<Phone className="w-4 h-4" />}
                                 label="Phone"
-                                value="+971 4 555 0198"
-                                href="tel:+97145550198"
+                                value="+971 56 666 4205"
+                                href="tel:+971566664205"
                                 testid="contact-phone"
                             />
                             <ContactRow
                                 icon={<MessageCircle className="w-4 h-4" />}
                                 label="WhatsApp"
-                                value="+971 50 555 0198"
-                                href="https://wa.me/971505550198"
+                                value="+971 56 666 4205"
+                                href="https://wa.me/971566664205"
                                 testid="contact-whatsapp"
                             />
                             <ContactRow
                                 icon={<Mail className="w-4 h-4" />}
                                 label="Email"
-                                value="atelier@maran.ae"
-                                href="mailto:atelier@maran.ae"
+                                value="info@upscapeuae.com"
+                                href="mailto:info@upscapeuae.com"
                                 testid="contact-email"
                             />
                         </div>

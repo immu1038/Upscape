@@ -21,7 +21,7 @@ export default function FloatingCTA() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 24, scale: 0.9 }}
                     transition={{ duration: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
-                    href="https://wa.me/971505550198"
+                    href="https://wa.me/971566664205"
                     target="_blank"
                     rel="noreferrer"
                     data-testid="floating-consultation-cta"
