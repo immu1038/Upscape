@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22  # Handled Node 20 deprecation automatically
+          node-version: 22
 
       - name: Install and Build Frontend
         run: |
@@ -23,12 +23,13 @@ jobs:
           npm install --force
           npm run build
 
-      - name: Sync Files via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      - name: Sync Files to Bluehost via Passive FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
+          server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server: ${{ secrets.FTP_SERVER }}
-          port: ${{ secrets.FTP_PORT }}
-          local_path: './frontend/build/*'
-          remote_path: '/public_html/'
+          local-dir: ./frontend/build/
+          server-dir: ./public_html/
+          port: 21                       # Back to standard FTP port
+          dangerous-clean-html: false
