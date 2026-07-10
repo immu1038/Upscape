@@ -61,7 +61,7 @@ export default function Footer() {
                         </p>
                         <div className="flex items-center gap-3">
                             <a
-                                href="https://instagram.com"
+                                href="https://www.instagram.com/upscape.renovations"
                                 target="_blank"
                                 rel="noreferrer"
                                 aria-label="Instagram"
@@ -71,11 +71,11 @@ export default function Footer() {
                                 <Instagram className="w-4 h-4" />
                             </a>
                             <a
-                                href="https://linkedin.com"
+                                href="https://www.facebook.com/upscaperenovations/"
                                 target="_blank"
                                 rel="noreferrer"
-                                aria-label="LinkedIn"
-                                data-testid="social-linkedin"
+                                aria-label="Facebook"
+                                data-testid="social-facebook"
                                 className="w-10 h-10 rounded-full border border-white/20 inline-flex items-center justify-center hover:border-[color:var(--maran-gold)] hover:text-[color:var(--maran-gold)] transition-colors"
                             >
                                 <Linkedin className="w-4 h-4" />
