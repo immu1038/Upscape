@@ -15,19 +15,20 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20  # Upgraded from 18 to fix react-router requirements
+          node-version: 22  # Handled Node 20 deprecation automatically
 
       - name: Install and Build Frontend
         run: |
           cd frontend
-          npm install --force  # Resolves dependency trees aggressively without breaking modules
+          npm install --force
           npm run build
 
-      - name: Sync Files to Bluehost
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Sync Files via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./frontend/build/
-          server-dir: ./public_html/
+          server: ${{ secrets.FTP_SERVER }}
+          port: ${{ secrets.FTP_PORT }}
+          local_path: './frontend/build/*'
+          remote_path: '/public_html/'
