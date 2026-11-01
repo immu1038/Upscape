@@ -29,6 +29,7 @@ import {
     PROJECTS,
     PROJECT_CATEGORIES,
     BEFORE_AFTER,
+    CASE_STUDIES,
     TESTIMONIALS,
     FAQS,
     waLink,
@@ -490,6 +491,60 @@ function Projects() {
                         </p>
                     </div>
                 </div>
+
+                {/* Case studies strip */}
+                <div className="mt-20 pt-16 border-t border-[color:var(--line)]">
+                    <div className="flex items-end justify-between mb-10 flex-wrap gap-6">
+                        <div>
+                            <p className="eyebrow mb-3">Case Studies</p>
+                            <h3 className="h-section text-3xl sm:text-4xl max-w-2xl">
+                                Three programmes in detail.
+                            </h3>
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        {CASE_STUDIES.map((c, i) => (
+                            <motion.div
+                                key={c.slug}
+                                variants={fadeUp}
+                                custom={i}
+                                initial="hidden"
+                                whileInView="show"
+                                viewport={{ once: true }}
+                            >
+                                <Link
+                                    to={`/case-studies/${c.slug}`}
+                                    className="card-lift block bg-white border border-[color:var(--line)] overflow-hidden"
+                                    data-testid={`case-${c.slug}`}
+                                >
+                                    <div className="svc-img aspect-[16/10]">
+                                        <img
+                                            src={c.cover}
+                                            alt={c.title}
+                                            className="w-full h-full object-cover grayscale contrast-105"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                    <div className="p-6">
+                                        <p className="eyebrow mb-2">
+                                            {c.category} · {c.year}
+                                        </p>
+                                        <h4 className="h-section text-lg mb-2">
+                                            {c.title}
+                                        </h4>
+                                        <p className="text-sm text-[color:var(--muted-3)] leading-relaxed">
+                                            {c.summary}
+                                        </p>
+                                        <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold">
+                                            Read case study
+                                            <ArrowRight className="w-4 h-4 arr transition-transform" />
+                                        </div>
+                                    </div>
+                                </Link>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </section>
     );
@@ -567,9 +622,20 @@ function Testimonials() {
                     >
                         “{t.quote}”
                     </motion.blockquote>
-                    <p className="mt-8 eyebrow">
-                        {t.name} · {t.company}
-                    </p>
+                    <div className="mt-8 flex items-center gap-4">
+                        <span
+                            aria-hidden="true"
+                            className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[color:var(--fg)] text-white font-bold text-sm tracking-wide"
+                        >
+                            {t.initials || t.name.split(" ").map((p) => p[0]).join("").slice(0, 2)}
+                        </span>
+                        <div>
+                            <p className="text-sm font-semibold">{t.name}</p>
+                            <p className="text-xs tracking-[0.18em] uppercase text-[color:var(--muted-3)] mt-0.5">
+                                {t.company}
+                            </p>
+                        </div>
+                    </div>
                     <div className="mt-8 flex gap-2">
                         {TESTIMONIALS.map((_, idx) => (
                             <button

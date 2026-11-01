@@ -8,6 +8,7 @@ import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import Privacy from "@/pages/Privacy";
 import Cookies from "@/pages/Cookies";
+import CaseStudy from "@/pages/CaseStudy";
 import NotFound from "@/pages/NotFound";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                     <Route element={<Layout />}>
                         <Route path="/" element={<Home />} />
                         <Route path="/services/:slug" element={<Service />} />
+                        <Route path="/case-studies/:slug" element={<CaseStudy />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/privacy" element={<Privacy />} />

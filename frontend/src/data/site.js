@@ -375,20 +375,137 @@ export const TESTIMONIALS = [
     {
         name: "Ahmed Hassan",
         company: "Project Director, Developer",
+        initials: "AH",
         quote:
             "UPSCAPE closed a 48-villa snag list on schedule. Their site team is calm, organised, and the finish is developer-grade.",
     },
     {
         name: "Lara Benali",
         company: "Facility Manager",
+        initials: "LB",
         quote:
             "Reliable, communicative, and strong on QA. We hand them a punch list and get photo evidence back on every unit.",
     },
     {
         name: "Richard Pierce",
         company: "Villa Owner, Palm Jumeirah",
+        initials: "RP",
         quote:
             "They painted, re-grouted and fixed every joinery issue on our villa — handed back cleaner than new.",
+    },
+];
+
+// Featured case studies — each has its own page at /case-studies/<slug>.
+// Add real photos to `gallery` and swap `cover` once UPSCAPE project photos are uploaded.
+export const CASE_STUDIES = [
+    {
+        slug: "damac-hills-handover-programme",
+        title: "DAMAC Hills — 48-Villa Handover Programme",
+        category: "Handover · Multi-Villa",
+        year: "2024",
+        location: "DAMAC Hills, Dubai",
+        duration: "9 weeks",
+        teamSize: "32",
+        cover:
+            "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=80",
+        summary:
+            "Developer handover closure across 48 villas: paint, joinery, tile, silicone, deep clean and handover walk-through.",
+        challenge:
+            "A tight programme to close a 48-villa snag list before scheduled customer handover dates — with weekly QS inspections, multi-trade coordination and a single photo-evidence audit trail.",
+        scope: [
+            "Full interior & exterior paint rectification",
+            "Joinery alignment and ironmongery closure",
+            "Hollow-tile detection & replacement",
+            "Wet-area re-silicone and expansion joints",
+            "Post-construction deep clean to handover spec",
+            "QA/QC sign-off with developer walk-through",
+        ],
+        outcome:
+            "All 48 villas delivered inside the agreed 9-week window with a zero-reject rate on the final developer handover inspections.",
+        metrics: [
+            { k: "48", v: "Villas Delivered" },
+            { k: "9 wks", v: "Programme Duration" },
+            { k: "0", v: "Reject Rate" },
+            { k: "100%", v: "On-time Handover" },
+        ],
+        gallery: [
+            "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=80",
+        ],
+    },
+    {
+        slug: "palm-jumeirah-painting",
+        title: "Palm Jumeirah — Private Villa Repaint",
+        category: "Painting",
+        year: "2024",
+        location: "Palm Jumeirah, Dubai",
+        duration: "3 weeks",
+        teamSize: "6",
+        cover:
+            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80",
+        summary:
+            "Full interior and exterior repaint of a 14,000 sq ft Palm Jumeirah villa with weather-resistant exterior systems.",
+        challenge:
+            "Repaint the full envelope of a lived-in villa with minimal disruption to the owner, matching exact developer handover colour and finish standards.",
+        scope: [
+            "Site protection and furniture coverage",
+            "Surface preparation, crack filling, re-plaster patches",
+            "Primer + two-coat premium emulsion",
+            "Weather-resistant exterior finish on fascia and walls",
+            "Snag closure and final touch-up before owner move-back",
+        ],
+        outcome:
+            "A clean, developer-grade finish delivered in three weeks — owner moved back the day after sign-off.",
+        metrics: [
+            { k: "14k", v: "Sq Ft Painted" },
+            { k: "3 wks", v: "Programme" },
+            { k: "6", v: "Painters On Site" },
+            { k: "2-coat", v: "Premium Finish" },
+        ],
+        gallery: [
+            "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1600&q=80",
+        ],
+    },
+    {
+        slug: "emirates-hills-joinery",
+        title: "Emirates Hills — Joinery Rectification",
+        category: "Joinery",
+        year: "2023",
+        location: "Emirates Hills, Dubai",
+        duration: "4 weeks",
+        teamSize: "8",
+        cover:
+            "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2000&q=80",
+        summary:
+            "Complete joinery, door and millwork rectification across all floors of a signature Emirates Hills villa.",
+        challenge:
+            "Over 120 joinery defects across wardrobes, internal doors and bespoke millwork — to be closed without replacing any installed veneers.",
+        scope: [
+            "Door alignment, hinges and ironmongery closure",
+            "Wardrobe shelf, hinge and drawer rectification",
+            "Veneer and laminate blend-in repairs",
+            "Skirting, architrave and trim refit",
+            "Final sanding, lacquering and finishing",
+        ],
+        outcome:
+            "All 120+ defects closed with no replacement of veneers — client sign-off at first inspection.",
+        metrics: [
+            { k: "120+", v: "Defects Closed" },
+            { k: "4 wks", v: "Programme" },
+            { k: "8", v: "Carpenters" },
+            { k: "0", v: "Replacements" },
+        ],
+        gallery: [
+            "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=80",
+        ],
     },
 ];
 
