@@ -112,7 +112,7 @@ export default function EnquiryModal({ open, onClose, prefillService }) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-[80] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
+                    className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
                     onClick={onClose}
                     data-testid="enquiry-modal"
                 >
