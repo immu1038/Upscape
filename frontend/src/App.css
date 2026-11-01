@@ -1,7 +1,7 @@
-/* MARÁN Atelier — minimal overrides */
+/* UPSCAPE — minimal app-level overrides */
 .App {
     min-height: 100vh;
-    background: var(--maran-off-white);
-    color: var(--maran-charcoal);
+    background: var(--bg);
+    color: var(--fg);
     position: relative;
 }

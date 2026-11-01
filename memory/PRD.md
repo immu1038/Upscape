@@ -1,36 +1,48 @@
 # UPSCAPE — Product Requirements
 
-## Original Problem Statement
-Premium single-page site for a Luxury Home Renovation & Landscape Architecture company based in Dubai.
-Tone: luxury, sophisticated, precise, modern. Palette: gold #C5A880, charcoal #1A1A1A, off-white #F9F9F9, white.
-Serif headers (Cormorant Garamond), geometric sans-serif body (Montserrat). Glassmorphism, bento-grids, generous whitespace.
-
 ## Brand
-- **UPSCAPE** — Renovations | Fit-out
-- Logo: https://customer-assets.emergentagent.com/job_desert-gold-design/artifacts/qj4647hy_Untitled%20design%20%287%29.png
-- Studio: 402-05 Sheikh Suhail Maktoum Juma Building, Port Saeed, Deira, Dubai, UAE
-- Phone / WhatsApp: +971 56 666 4205
+- UPSCAPE (legal: Upscape Building Maintenance LLC)
+- Positioning: Villa Handover & Rectification Specialists · Dubai
+- Theme: strict B&W (#0A0A0A / #FFFFFF / neutral greys); single accent = WhatsApp green
+- Font: Montserrat only (300–800)
+- Logo: inline SVG, white letters on black, final "E" as three stacked bars
+- Domain: upscapeuae.com
+- Phone/WhatsApp: +971 54 219 7974
 - Email: info@upscapeuae.com
 
 ## Stack
-- React 19 + Tailwind CSS + Framer Motion 11 + lucide-react + sonner
-- Frontend-only (contact form simulated; no backend endpoints used)
+- React 19 + CRA + craco + Tailwind
+- react-router-dom v7, react-helmet-async, framer-motion, @emailjs/browser, lucide-react, sonner
+- Frontend-only (contact submits to WhatsApp; EmailJS backup if env keys supplied)
 
-## What's been implemented (2025-12-XX, rebranded from MARÁN → UPSCAPE)
-- All sections: Sticky glassmorphic header (UPSCAPE logo image), Hero slider, 3D-tilt services grid, filterable portfolio with keyboard-accessible Before/After slider, animated stats counters + district marquee, dark About section, floating-label contact form (MOCKED simulated success + toast), stylised Google Map of Port Saeed/Deira, contact rows (real UPSCAPE address / phone / whatsapp / email), footer with UPSCAPE branding, floating WhatsApp CTA (+971 56 666 4205)
-- Removed all "Est. 2011" references; replaced with location-based ("Deira / Dubai · Port Saeed · UAE") and a delivered-projects stat ("240+ Fit-out Projects Delivered")
-- 13/13 frontend tests passing before rebrand; visual verification after rebrand confirms logo, addresses, phone, email all reflect UPSCAPE
+## Architecture
+- All content in `/src/data/site.js` (brand, services, process, projects, FAQs, testimonials, stats, nav)
+- Shared layout at `/src/components/Layout.jsx` with Header, Footer, WhatsAppButton, ScrollProgress, CookieBanner, EnquiryModal, CustomCursor
+- Routes:
+  - `/` → Home (hero, trust bar, 6 core services, 5 additional services, 5-step process, projects grid + filter + before/after, why, testimonials, FAQ, final CTA)
+  - `/services/:slug` → unique page per service with SEO + JSON-LD
+  - `/about`, `/contact`, `/privacy`, `/cookies`, `*` → 404
+- Enquiry modal — validates, builds a labelled WhatsApp message, opens wa.me, EmailJS backup silent-skips if env keys missing
+- Cookie banner stores choice in localStorage, loads GA4 + Meta Pixel only after consent
+- Custom cursor only on `(hover: hover) and (pointer: fine)` devices
 
-## Prioritised backlog
-- P1: Wire contact form to backend (MongoDB `enquiries` + Resend/SendGrid notification to info@upscapeuae.com)
-- P1: Individual project detail pages with case-study copy + gallery
-- P2: Multilingual (EN / AR) toggle
-- P2: CMS-driven portfolio (currently hard-coded in `Portfolio.jsx`)
-- P2: Real Instagram / LinkedIn URLs (currently placeholder)
-- P3: Video hero variant
-- P3: Lead-magnet PDF ("The Dubai Villa Renovation Guide") gated by email
+## SEO
+- Per-route meta via react-helmet-async + Seo component
+- Static head in `/public/index.html` with title, description, canonical, OG + Twitter, HomeAndConstructionBusiness JSON-LD, `<noscript>` body fallback
+- Home page JSON-LD includes FAQPage
+- Service pages JSON-LD = `Service` schema
+- `/public/robots.txt` with explicit AI-crawler group + `Disallow: /api/`
+- `/public/sitemap.xml` with 16 URLs
+- `/public/llms.txt` summary
+- `/public/og-image.svg` (1200×630) + favicon (inline data URI) + apple-touch-icon.svg
 
-## Next tasks
-1. Wire the contact form to a real backend (MongoDB `enquiries` + email to info@upscapeuae.com)
-2. Swap curated stock imagery for real UPSCAPE project photography
-3. Add Instagram / LinkedIn real profile URLs
+## Env variables (optional)
+- `REACT_APP_GA_ID` — Google Analytics 4, loaded after consent
+- `REACT_APP_META_PIXEL_ID` — Meta Pixel, loaded after consent
+- `REACT_APP_EMAILJS_SERVICE_ID`, `REACT_APP_EMAILJS_TEMPLATE_ID`, `REACT_APP_EMAILJS_PUBLIC_KEY` — enquiry backup email
+
+## Pending (not yet done — call out next)
+- Replace stock Unsplash images with real UPSCAPE project photos (easy swap in `site.js`)
+- Add real social URLs if different from placeholders
+- Prerendering for AI/social crawlers runs at deploy-time (platform toggle); preview env uses static head + helmet
+- Blog / Insights section if needed later

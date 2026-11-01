@@ -1,95 +1,63 @@
-import { useCallback, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function BeforeAfterSlider({
-    beforeSrc,
-    afterSrc,
-    beforeAlt = "Before",
-    afterAlt = "After",
-    testid = "before-after-slider",
-}) {
+export default function BeforeAfterSlider({ beforeSrc, afterSrc, labelBefore = "Before", labelAfter = "After" }) {
     const [pos, setPos] = useState(52);
-    const containerRef = useRef(null);
-    const draggingRef = useRef(false);
+    const ref = useRef(null);
+    const drag = useRef(false);
 
-    const updateFromClientX = useCallback((clientX) => {
-        const el = containerRef.current;
+    const update = (x) => {
+        const el = ref.current;
         if (!el) return;
-        const rect = el.getBoundingClientRect();
-        const p = ((clientX - rect.left) / rect.width) * 100;
+        const r = el.getBoundingClientRect();
+        const p = ((x - r.left) / r.width) * 100;
         setPos(Math.max(0, Math.min(100, p)));
-    }, []);
-
-    const onDown = (e) => {
-        draggingRef.current = true;
-        const x = e.touches ? e.touches[0].clientX : e.clientX;
-        updateFromClientX(x);
-    };
-    const onMove = (e) => {
-        if (!draggingRef.current) return;
-        const x = e.touches ? e.touches[0].clientX : e.clientX;
-        updateFromClientX(x);
-    };
-    const onUp = () => {
-        draggingRef.current = false;
     };
 
-    const onKey = (e) => {
+    const down = (e) => {
+        drag.current = true;
+        update(e.touches ? e.touches[0].clientX : e.clientX);
+    };
+    const move = (e) => {
+        if (!drag.current) return;
+        update(e.touches ? e.touches[0].clientX : e.clientX);
+    };
+    const up = () => (drag.current = false);
+    const key = (e) => {
         if (e.key === "ArrowLeft") setPos((p) => Math.max(0, p - 4));
         if (e.key === "ArrowRight") setPos((p) => Math.min(100, p + 4));
     };
 
     return (
         <div
-            ref={containerRef}
-            className="ba-container"
-            data-testid={testid}
-            onMouseDown={onDown}
-            onMouseMove={onMove}
-            onMouseUp={onUp}
-            onMouseLeave={onUp}
-            onTouchStart={onDown}
-            onTouchMove={onMove}
-            onTouchEnd={onUp}
+            ref={ref}
+            className="ba"
             role="slider"
-            aria-label="Before and after comparison slider"
+            aria-label="Before and after"
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={Math.round(pos)}
             tabIndex={0}
-            onKeyDown={onKey}
+            onKeyDown={key}
+            onMouseDown={down}
+            onMouseMove={move}
+            onMouseUp={up}
+            onMouseLeave={up}
+            onTouchStart={down}
+            onTouchMove={move}
+            onTouchEnd={up}
+            data-testid="before-after"
         >
-            <img
-                src={beforeSrc}
-                alt={beforeAlt}
-                className="ba-img"
-                loading="lazy"
-                draggable={false}
-            />
-            <div
-                className="ba-after-wrap"
-                style={{ clipPath: `inset(0 0 0 ${pos}%)` }}
-            >
-                <img
-                    src={afterSrc}
-                    alt={afterAlt}
-                    className="ba-img"
-                    loading="lazy"
-                    draggable={false}
-                />
+            <img src={beforeSrc} alt={labelBefore} draggable={false} />
+            <div className="ba-after" style={{ clipPath: `inset(0 0 0 ${pos}%)` }}>
+                <img src={afterSrc} alt={labelAfter} draggable={false} />
             </div>
-
             <span className="ba-label" style={{ left: 14 }}>
-                Before
+                {labelBefore}
             </span>
             <span className="ba-label" style={{ right: 14 }}>
-                After
+                {labelAfter}
             </span>
-
-            <div className="ba-handle" style={{ left: `${pos}%` }}>
-                <span className="arrows" aria-hidden="true">
-                    ‹ ›
-                </span>
-            </div>
+            <div className="ba-handle" style={{ left: `${pos}%` }} aria-hidden="true" />
         </div>
     );
 }
