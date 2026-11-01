@@ -1,0 +1,44 @@
+name: Build and Deploy Frontend to Bluehost
+
+on:
+  push:
+    branches:
+      - conflict_011126_1026
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install and Build Frontend
+        env:
+          CI: false
+          REACT_APP_GA_ID: ${{ secrets.REACT_APP_GA_ID }}
+          REACT_APP_META_PIXEL_ID: ${{ secrets.REACT_APP_META_PIXEL_ID }}
+          REACT_APP_EMAILJS_SERVICE_ID: ${{ secrets.REACT_APP_EMAILJS_SERVICE_ID }}
+          REACT_APP_EMAILJS_TEMPLATE_ID: ${{ secrets.REACT_APP_EMAILJS_TEMPLATE_ID }}
+          REACT_APP_EMAILJS_PUBLIC_KEY: ${{ secrets.REACT_APP_EMAILJS_PUBLIC_KEY }}
+        run: |
+          cd frontend
+          npm install --force
+          npm run build
+
+      - name: Sync Files to Bluehost
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./frontend/build/
+          server-dir: ./public_html/
+          port: 21
+          exclude: |
+            **/.htaccess
