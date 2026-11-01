@@ -232,7 +232,7 @@ export const ADDITIONAL_SERVICES = [
         description:
             "Annual maintenance contracts (AMC) and preventive servicing for villa HVAC systems — chiller, FCU, split and ducted systems.",
         image:
-            "https://images.unsplash.com/photo-1631545308456-98c3fcedc6ba?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1600&q=80",
         included: [
             "Preventive maintenance schedule",
             "Coil cleaning & gas top-up",
