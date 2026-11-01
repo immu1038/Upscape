@@ -92,10 +92,10 @@ export default function Service() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="h-display text-4xl sm:text-6xl lg:text-7xl max-w-5xl"
+                        className="h-display text-[32px] sm:text-6xl lg:text-7xl max-w-5xl leading-[1.05]"
                     >
                         {svc.title}
-                        <span className="block text-white/50 mt-2 text-2xl sm:text-3xl font-normal">
+                        <span className="block text-white/50 mt-2 text-lg sm:text-3xl font-normal leading-tight">
                             Dubai villas, developer-grade finish.
                         </span>
                     </motion.h1>

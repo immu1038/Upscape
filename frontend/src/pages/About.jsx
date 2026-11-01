@@ -19,7 +19,7 @@ export default function About() {
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="h-display text-4xl sm:text-6xl lg:text-7xl max-w-5xl"
+                        className="h-display text-[32px] sm:text-6xl lg:text-7xl max-w-5xl leading-[1.05]"
                     >
                         A Dubai site team built for handover.
                     </motion.h1>

@@ -15,7 +15,7 @@ export default function Contact() {
             <section className="bg-[color:var(--fg)] text-white py-20 sm:py-28">
                 <div className="container-u">
                     <p className="eyebrow text-white/50 mb-5">Contact</p>
-                    <h1 className="h-display text-4xl sm:text-6xl lg:text-7xl max-w-5xl">
+                    <h1 className="h-display text-[32px] sm:text-6xl lg:text-7xl max-w-5xl leading-[1.05]">
                         Let's talk about your villa.
                     </h1>
                     <p className="mt-6 max-w-xl text-white/70 text-base sm:text-lg">

@@ -92,7 +92,7 @@ function SectionHeading({ eyebrow, title, children, light }) {
         >
             <p className={`eyebrow ${light ? "text-white/60" : ""}`}>{eyebrow}</p>
             <h2
-                className={`h-section text-3xl sm:text-5xl lg:text-6xl mt-4 max-w-4xl ${light ? "text-white" : ""}`}
+                className={`h-section text-[28px] sm:text-5xl lg:text-6xl mt-4 max-w-4xl leading-[1.08] ${light ? "text-white" : ""}`}
             >
                 {title}
             </h2>
@@ -143,7 +143,7 @@ function Hero({ openEnquiry }) {
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.9, ease: [0.2, 0.8, 0.2, 1], delay: 0.1 }}
-                    className="h-display text-5xl sm:text-7xl lg:text-[108px] max-w-6xl"
+                    className="h-display text-[40px] sm:text-6xl lg:text-[108px] max-w-6xl leading-[1.02]"
                 >
                     Handover-ready.
                     <br />
@@ -702,7 +702,7 @@ function FinalCTA({ openEnquiry }) {
         <section data-testid="final-cta" className="py-24 sm:py-32 bg-[color:var(--fg)] text-white">
             <div className="container-u text-center">
                 <p className="eyebrow text-white/50 mb-5">Ready when you are</p>
-                <h2 className="h-display text-4xl sm:text-6xl lg:text-7xl max-w-5xl mx-auto">
+                <h2 className="h-display text-[32px] sm:text-6xl lg:text-7xl max-w-5xl mx-auto leading-[1.05]">
                     Have villas to hand over?
                     <br />
                     Let's talk.

@@ -8,7 +8,7 @@ export default function NotFound() {
             <section className="min-h-[70vh] bg-[color:var(--fg)] text-white flex items-center">
                 <div className="container-u text-center">
                     <p className="eyebrow text-white/50 mb-5">Error 404</p>
-                    <h1 className="h-display text-5xl sm:text-7xl mb-6">
+                    <h1 className="h-display text-[40px] sm:text-7xl mb-6 leading-[1.05]">
                         This villa doesn't exist.
                     </h1>
                     <p className="text-white/70 max-w-lg mx-auto">

@@ -62,6 +62,13 @@ export default function Header({ onOpenEnquiry }) {
                     to="/"
                     aria-label="UPSCAPE — home"
                     data-testid="brand-logo"
+                    onClick={(e) => {
+                        if (loc.pathname === "/") {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                        }
+                        setOpen(false);
+                    }}
                     className="inline-flex items-center"
                 >
                     <Logo
@@ -142,8 +149,18 @@ export default function Header({ onOpenEnquiry }) {
                         data-testid="mobile-menu"
                         style={{ paddingTop: 80 }}
                     >
-                        <div className="container-u py-8">
-                            <ul className="flex flex-col gap-2">
+                        {/* Close button inside the overlay */}
+                        <button
+                            type="button"
+                            aria-label="Close menu"
+                            onClick={() => setOpen(false)}
+                            data-testid="mobile-menu-close"
+                            className="absolute top-4 right-5 w-10 h-10 inline-flex items-center justify-center rounded-full border border-white/25 text-white z-10"
+                        >
+                            <X className="w-5 h-5" />
+                        </button>
+                        <div className="container-u py-6 pb-10">
+                            <ul className="flex flex-col gap-1">
                                 {NAV.map((n, i) => (
                                     <motion.li
                                         key={n.href}
@@ -155,7 +172,7 @@ export default function Header({ onOpenEnquiry }) {
                                             <a
                                                 href={n.href}
                                                 onClick={handleNav(n.href)}
-                                                className="block py-5 text-4xl font-bold tracking-tight border-b border-white/10"
+                                                className="block py-4 text-2xl font-bold tracking-tight border-b border-white/10"
                                                 data-testid={`m-nav-${n.label.toLowerCase()}`}
                                             >
                                                 {n.label}
@@ -164,7 +181,7 @@ export default function Header({ onOpenEnquiry }) {
                                             <Link
                                                 to={n.href}
                                                 onClick={() => setOpen(false)}
-                                                className="block py-5 text-4xl font-bold tracking-tight border-b border-white/10"
+                                                className="block py-4 text-2xl font-bold tracking-tight border-b border-white/10"
                                                 data-testid={`m-nav-${n.label.toLowerCase()}`}
                                             >
                                                 {n.label}
@@ -173,11 +190,12 @@ export default function Header({ onOpenEnquiry }) {
                                     </motion.li>
                                 ))}
                             </ul>
-                            <div className="mt-10 flex flex-col gap-3">
+                            <div className="mt-8 flex flex-col gap-3">
                                 <a
                                     href={waLink()}
                                     target="_blank"
                                     rel="noreferrer"
+                                    onClick={() => setOpen(false)}
                                     className="btn btn-wa justify-center"
                                     data-testid="m-whatsapp"
                                 >

@@ -78,7 +78,7 @@ export default function CaseStudy() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.9 }}
-                        className="h-display text-4xl sm:text-6xl lg:text-7xl max-w-5xl"
+                        className="h-display text-[32px] sm:text-6xl lg:text-7xl max-w-5xl leading-[1.05]"
                     >
                         {cs.title}
                     </motion.h1>
