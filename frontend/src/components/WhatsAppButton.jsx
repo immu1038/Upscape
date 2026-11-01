@@ -31,7 +31,7 @@ export default function WhatsAppButton() {
                 aria-label="Chat on WhatsApp"
                 data-testid="wa-float"
                 className="wa-float inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[color:var(--wa-green)] text-white hover:bg-[color:var(--wa-green-dark)] transition-colors"
-                style={{ boxShadow: "0 14px 30px rgba(37,211,102,0.4)" }}
+                style={{ boxShadow: "0 14px 30px rgba(18,140,126,0.35)" }}
             >
                 <MessageCircle className="w-7 h-7" />
             </a>

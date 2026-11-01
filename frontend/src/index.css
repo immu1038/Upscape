@@ -10,8 +10,8 @@
     --muted-3: #8a8a8a;
     --line: rgba(10, 10, 10, 0.08);
     --line-strong: rgba(10, 10, 10, 0.14);
-    --wa-green: #25d366;
-    --wa-green-dark: #128c7e;
+    --wa-green: #128c7e;
+    --wa-green-dark: #075e54;
     --radius: 2px;
     --maxw: 1360px;
     --easeOut: cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -304,13 +304,13 @@ img {
 /* WhatsApp floating pulse */
 @keyframes wa-pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+        box-shadow: 0 0 0 0 rgba(18, 140, 126, 0.45);
     }
     80% {
-        box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
+        box-shadow: 0 0 0 18px rgba(18, 140, 126, 0);
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        box-shadow: 0 0 0 0 rgba(18, 140, 126, 0);
     }
 }
 .wa-float {
